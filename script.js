@@ -61,9 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const addToCalendarBtn = document.getElementById('addToCalendar');
     if (addToCalendarBtn) {
-        addToCalendarBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const icsContent = `BEGIN:VCALENDAR
+        const icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Action Painting//Wystawa
 BEGIN:VEVENT
@@ -76,14 +74,17 @@ DESCRIPTION:Wystawa prac artystycznych dzieci - Sztuka nie pyta o wiek.
 LOCATION:Wydział Politologii i Dziennikarstwa UMCS w Lublinie
 END:VEVENT
 END:VCALENDAR`;
+
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+        if (isIOS) {
+            // Rozwiązanie natywne dla iOS (uruchamia aplikację Kalendarz zamiast zapisywania pliku)
+            addToCalendarBtn.href = 'data:text/calendar;charset=utf8,' + encodeURIComponent(icsContent);
+        } else {
+            // Android i komputery desktopowe (Blob URL przypisany z góry pozwala uniknąć blokowania przez przeglądarkę)
             const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'action_painting_wystawa.ics');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
+            addToCalendarBtn.href = window.URL.createObjectURL(blob);
+            addToCalendarBtn.setAttribute('download', 'action_painting_wystawa.ics');
+        }
     }
 });
