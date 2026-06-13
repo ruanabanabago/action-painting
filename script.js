@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('.hero'),
         document.querySelector('.description'),
         ...document.querySelectorAll('.detail-card'),
+        document.querySelector('.map-section'),
         document.querySelector('footer')
     ];
 
