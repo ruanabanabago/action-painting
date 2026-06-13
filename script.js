@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, 100);
 
-    // Countdown Timer to 15.06.2026
+    // Countdown Timer to 29.06.2026
     const countdownContainer = document.getElementById('countdown');
     if (countdownContainer) {
-        // Data wydarzenia z plakatu: 15 Czerwca 2026, ustawmy godzinę na 10:00 rano
-        const eventDate = new Date('2026-06-15T10:00:00').getTime();
+        // Data wydarzenia z plakatu: 29 Czerwca 2026, ustawmy godzinę na 10:00 rano
+        const eventDate = new Date('2026-06-29T10:00:00').getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -66,9 +66,9 @@ VERSION:2.0
 PRODID:-//Action Painting//Wystawa
 BEGIN:VEVENT
 UID:action-painting-2026
-DTSTAMP:20260615T080000Z
-DTSTART:20260615T080000Z
-DTEND:20260615T160000Z
+DTSTAMP:20260629T080000Z
+DTSTART:20260629T080000Z
+DTEND:20260629T160000Z
 SUMMARY:Wystawa Action Painting
 DESCRIPTION:Wystawa prac artystycznych dzieci - Sztuka nie pyta o wiek.
 LOCATION:Wydział Politologii i Dziennikarstwa UMCS w Lublinie

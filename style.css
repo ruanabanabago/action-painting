@@ -193,6 +193,12 @@ body {
     transform: translateY(20px);
 }
 
+@media (min-width: 650px) {
+    .wide-card {
+        grid-column: span 2;
+    }
+}
+
 .detail-card.visible:nth-child(1) { transition: opacity 1s ease-out 0.4s, transform 1s ease-out 0.4s; }
 .detail-card.visible:nth-child(2) { transition: opacity 1s ease-out 0.6s, transform 1s ease-out 0.6s; }
 .detail-card.visible:nth-child(3) { transition: opacity 1s ease-out 0.8s, transform 1s ease-out 0.8s; }
