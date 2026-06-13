@@ -239,6 +239,10 @@ body {
     text-align: justify;
 }
 
+.detail-content p.no-justify {
+    text-align: left;
+}
+
 .detail-content strong {
     font-weight: 700;
     color: var(--text-color);
